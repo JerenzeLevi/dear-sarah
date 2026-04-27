@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You | My Favorite Person</title> <!--Ilysm-->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="sakura-canvas"></canvas>
+    <div id="heart-cursor"></div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="fade-in">To My Favourite Person</h1>
+            <p class="fade-in-delayed">I built this little corner of the internet just for you.</p>
+            
+            <div class="scroll-container">
+                <span class="scroll-text">Scroll to see your favorites</span>
+                <div class="indicator-arrow"></div>
+            </div>
+        </div>
+    </header>
+
+    <section class="notes-section">
+        <h2 class="section-title">Little Reminders</h2>
+        <div class="notes-grid">
+            <div class="note-card"><span>Click Me</span><p class="hidden-text">You're the matcha to my morning. 🍵</p></div>
+            <div class="note-card"><span>Click Me</span><p class="hidden-text">I'm so proud of everything you do.</p></div>
+            <div class="note-card"><span>Click Me</span><p class="hidden-text">You look best when you smile. ✨</p></div>
+            <div class="note-card"><span>Click Me</span><p class="hidden-text">I'll enumerate your qualities even if you think you're not good enough. </p></div>
+            <div class="note-card"><span>Click Me</span><p class="hidden-text">I'd wish to walk a future with you.</p></div>
+            <div class="note-card"><span>Click Me</span><p class="hidden-text">May God, even if I'm not religious, protect you always. I prayed.</p></div>
+            <div class="note-card"><span>Click Me</span><p class="hidden-text">I'll always be here for you, let's pursue Dean's lister together!</p></div>
+            <div class="note-card"><span>Click Me</span><p class="hidden-text">You always gave me motivation just by being cute</p></div>
+        </div>
+    </section>
+
+    <section class="music-section">
+    <h2 class="section-title">Your Top 10 Soundtrack</h2>
+    <div class="song-container">
+        
+        <div class="song-card" data-audio="music/song1.mp3">
+            <div class="index">01</div>
+            <div class="album-art">
+                <img src="https://i.scdn.co/image/ab67616d0000b27386b0c9728ad3ed338eaeea79" alt="cover">
+            </div>
+            <div class="details">
+                <h4>Hey Daddy (Daddy’s Home)</h4>
+                <p>Usher</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/030OCtLMrljNhp8OWHBWW3?si=b3b4c031b7724d49" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song2.mp3">
+            <div class="index">02</div>
+            <div class="album-art">
+                <img src="https://i.scdn.co/image/ab67616d0000b273780560af566ebfb863fdfe8d" alt="cover">
+            </div>
+            <div class="details">
+                <h4>Gangsta Baby</h4>
+                <p>HELLMERRY, Baby G</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/09xIqJ9tfDYHJvvBIbHgTB?si=040754ca447847aa" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song3.mp3">
+            <div class="index">03</div>
+            <div class="album-art">
+                <img src="https://i.scdn.co/image/ab67616d0000b273be9482a90e83ec675db012b4" alt="cover">
+            </div>
+            <div class="details">
+                <h4>Good For You</h4>
+                <p>Selena Gomez</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/5xdVqHtFS0eLuNp4Z8Wbpa?si=4d2aba5497294942" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song4.mp3">
+            <div class="index">04</div>
+            <div class="album-art">
+                <img src="https://i.scdn.co/image/ab67616d0000b273deec12a28d1e336c5052e9aa" alt="cover">
+            </div>
+            <div class="details">
+                <h4>Love Me Harder</h4>
+                <p>Ariana Grande, The Weeknd</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/5J4ZkQpzMUFojo1CtAZYpn?si=f42f9ba8873d49b0" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song5.mp3">
+            <div class="index">05</div>
+            <div class="album-art">
+                <img src="https://i.scdn.co/image/ab67616d0000b273e1981ca6e44786f803e59bf2" alt="cover">
+            </div>
+            <div class="details">
+                <h4>Maikee's Letters</h4>
+                <p>Just Hush</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/21XjtaAEZxurElfPGSKrv9?si=206d9180465a40db" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song6.mp3">
+            <div class="index">06</div>
+            <div class="album-art">
+                <img src="https://i.scdn.co/image/ab67616d0000b273ce5bc87f637b46ad01831fc4" alt="cover">
+            </div>
+            <div class="details">
+                <h4>Folded</h4>
+                <p>Kehlani</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/0bxPRWprUVpQK0UFcddkrA?si=abe132e134364256" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song7.mp3">
+            <div class="index">07</div>
+            <div class="album-art">
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Lil_Dicky_Freaky_Friday.png" alt="cover">
+            </div>
+            <div class="details">
+                <h4>Freaky Friday</h4>
+                <p>Lil Dicky ft. Chris Brown</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/6dbSBQXCctYSVryynHXaZ4?si=828147bc5abb4b17" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song8.mp3">
+            <div class="index">08</div>
+            <div class="album-art">
+                <img src="https://i.scdn.co/image/ab67616d0000b273015b5b64f619b4f5f8b61c8d" alt="cover">
+            </div>
+            <div class="details">
+                <h4>Nothin' On You</h4>
+                <p>B.o.B ft. Bruno Mars</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/59dLtGBS26x7kc0rHbaPrq?si=18335baf4b984a9f" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song9.mp3">
+            <div class="index">09</div>
+            <div class="album-art">
+                <img src="https://i.scdn.co/image/ab67616d00001e024011de7822423ed7557c3c81" alt="cover">
+            </div>
+            <div class="details">
+                <h4>13</h4>
+                <p>LANY</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/0WOvSEVpUGkNufX0w0M06F?si=d7fabe4edb89467c" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+        <div class="song-card" data-audio="music/song10.mp3">
+            <div class="index">10</div>
+            <div class="album-art">
+                <img src="https://upload.wikimedia.org/wikipedia/en/8/87/The_One_That_Got_Away_cover.png" alt="cover">
+            </div>
+            <div class="details">
+                <h4>The One That Got Away</h4>
+                <p>Katy Perry</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </div>
+            <div class="card-actions">
+                <div class="play-icon">♪</div>
+                <a href="https://open.spotify.com/track/3oL3XRtkP1WVbMxf7dtTdu?si=757a0de309404fbd" target="_blank" class="spotify-link">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<audio id="main-audio-player"></audio>
+
+    <footer class="portal-section">
+        <div class="glass-box">
+            <h2 class="section-title">The Gallery</h2>
+            <p>Ready to see some memories?</p>
+            <a href="gallery.html" class="portal-button">Take me there</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
