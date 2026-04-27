@@ -1,0 +1,523 @@
+:root {
+    --primary-pink: #ffb6c1;
+    --accent-pink: #ff69b4;
+    --glass: rgba(255, 255, 255, 0.25);
+    --glass-bright: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Global Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none !important; /* Ensures the heart cursor is always visible */
+}
+
+body {
+    background: #fff0f3;
+    font-family: 'Poppins', sans-serif;
+    color: #4a4a4a;
+    overflow-x: hidden;
+}
+
+/* --- Sakura Canvas & Heart Cursor --- */
+#sakura-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#heart-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-pink);
+    transform: rotate(45deg);
+    pointer-events: none;
+    z-index: 9999;
+    filter: drop-shadow(0 0 10px rgba(255, 105, 180, 0.8));
+}
+
+#heart-cursor::before, #heart-cursor::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-pink);
+    border-radius: 50%;
+}
+
+#heart-cursor::before { left: -10px; }
+#heart-cursor::after { top: -10px; }
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    color: var(--accent-pink);
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.05);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* --- Restored Animated Arrow --- */
+.scroll-container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scroll-text {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: var(--accent-pink);
+    margin-bottom: 10px;
+}
+
+.indicator-arrow {
+    width: 15px;
+    height: 15px;
+    border-right: 3px solid var(--accent-pink);
+    border-bottom: 3px solid var(--accent-pink);
+    transform: rotate(45deg);
+    animation: arrowBounce 2s infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+    40% { transform: translateY(-10px) rotate(45deg); }
+    60% { transform: translateY(-5px) rotate(45deg); }
+}
+
+/* --- Love Letters / Notes Section --- */
+.notes-section {
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.notes-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.note-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 220px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.note-card span {
+    font-weight: 600;
+    color: var(--accent-pink);
+    font-size: 1rem;
+}
+
+.hidden-text {
+    display: none;
+    font-size: 0.95rem;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.note-card.open span { display: none; }
+.note-card.open .hidden-text {
+    display: block;
+    animation: fadeIn 0.6s ease;
+}
+
+/* --- Music Section --- */
+.music-section {
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+    color: #4a4a4a;
+}
+
+.song-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.song-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.song-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.song-card:hover {
+    background: var(--glass-bright);
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(255, 182, 193, 0.3);
+}
+
+.index { color: var(--accent-pink); font-weight: bold; margin-right: 20px; }
+.play-icon { margin-left: auto; font-size: 1.5rem; opacity: 0.3; }
+
+/* --- Portal Section --- */
+.portal-section {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.glass-box {
+    background: var(--glass);
+    padding: 50px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid white;
+    backdrop-filter: blur(10px);
+    max-width: 400px;
+}
+
+/* --- Upgraded Portal Button --- */
+.portal-button {
+    position: relative;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 15px 40px;
+    background: var(--accent-pink); /* The "inner" button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+    overflow: hidden; /* Clips the rotating light to the border */
+    z-index: 1;
+}
+
+/* The Rotating Glow Track */
+.portal-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        rgba(255, 255, 255, 0.8), 
+        transparent 30%
+    );
+    animation: rotateGlow 3s linear infinite;
+    z-index: -2;
+}
+
+/* The "Inner" Button Cover (to keep the center solid pink) */
+.portal-button::after {
+    content: '';
+    position: absolute;
+    inset: 3px; /* This creates the 3px border thickness */
+    background: var(--accent-pink);
+    border-radius: 50px;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+/* Hover Effects */
+.portal-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(255, 105, 180, 0.5);
+    color: white;
+}
+
+.portal-button:hover::after {
+    background: #ff85c1; /* Slightly lighter pink on hover */
+}
+
+/* The Rotation Animation */
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Removes default link styling */
+.song-link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Makes the whole area clickable */
+    width: 100%;
+}
+
+.song-link:active {
+    transform: scale(0.98); /* Slight "press" effect when she clicks */
+}
+
+.card-actions {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.yt-link {
+    background: white;
+    color: var(--accent-pink);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: 0.4s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* When she hovers the card, the YT link slides in */
+.song-card:hover .yt-link {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.song-card:hover .play-icon {
+    color: var(--accent-pink);
+    transform: scale(1.2);
+}
+
+.song-card.playing-song {
+    background: rgba(255, 182, 193, 0.2); /* Light pink glass tint */
+    border: 1.5px solid var(--primary-pink);
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.6), 
+                inset 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.02);
+}
+
+/* 2. Special hover effect only when it's playing */
+.song-card.playing-song:hover {
+    box-shadow: 0 0 30px rgba(255, 105, 180, 0.8); /* Stronger pink glow on hover */
+    background: rgba(255, 182, 193, 0.3);
+}
+
+/* 3. Make the play icon pink and pulse when playing */
+.song-card.playing-song .play-icon {
+    color: var(--accent-pink);
+    opacity: 1;
+    text-shadow: 0 0 8px var(--primary-pink);
+    animation: pulse 1.5s infinite;
+}
+
+/* 4. Ensure the YT link is visible if the song is playing even without hover */
+.song-card.playing-song .yt-link {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* --- Generic Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Album Art --- */
+.album-art {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Progress Bar --- */
+.progress-container {
+    width: 100%;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 8px;
+    display: none; /* Only shows when playing */
+    overflow: hidden;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--accent-pink);
+    box-shadow: 0 0 8px var(--primary-pink);
+    transition: width 0.1s linear;
+}
+
+.song-card.playing-song .progress-container {
+    display: block;
+}
+
+/* --- Spotify Button --- */
+.spotify-link {
+    background: #1DB954; /* Spotify Green */
+    padding: 8px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(29, 185, 84, 0.3);
+}
+
+.spotify-link img {
+    width: 18px;
+    filter: brightness(0) invert(1); /* Makes the logo white */
+}
+
+.song-card:hover .spotify-link,
+.song-card.playing-song .spotify-link {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.spotify-link:hover {
+    background: #1ed760;
+    transform: scale(1.1);
+}
+
+/* --- Responsiveness Media Queries --- */
+
+@media (max-width: 768px) {
+    /* 1. Shrink the Hero Text so it doesn't wrap weirdly */
+    .hero h1 {
+        font-size: 3.5rem;
+        padding: 0 20px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 30px;
+    }
+
+    /* 2. Adjust the Notes Grid */
+    .notes-grid {
+        gap: 15px;
+    }
+
+    .note-card {
+        width: 45%; /* Shows 2 notes side-by-side on mobile */
+        height: 140px;
+        padding: 15px;
+    }
+
+    /* 3. Song Cards: Make them slightly slimmer */
+    .song-container {
+        padding: 0 15px;
+    }
+
+    .song-card {
+        padding: 15px;
+    }
+
+    .album-art {
+        width: 45px;
+        height: 45px;
+        margin-right: 12px;
+    }
+
+    .details h4 {
+        font-size: 0.95rem; /* Prevents long titles from breaking the layout */
+    }
+
+    .details p {
+        font-size: 0.8rem;
+    }
+
+    /* 4. Portal Button spacing */
+    .glass-box {
+        padding: 30px 20px;
+        margin: 0 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Small phones (Portrait) */
+    .note-card {
+        width: 100%; /* 1 note per row for readability */
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .spotify-link {
+        width: 32px;
+        height: 32px;
+        opacity: 1; /* Always visible on mobile since there is no 'hover' */
+        transform: translateX(0);
+    }
+}
